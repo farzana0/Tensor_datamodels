@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "experiment": "ag-news-roberta-lora-eight-group",
+  "model": {
+    "name": "roberta-base",
+    "revision": "e2da8e2f811d1448a5b465c236feacd80ffbac7b",
+    "num_labels": 4,
+    "max_length": 128,
+    "lora_rank": 8,
+    "lora_alpha": 16,
+    "lora_dropout": 0.05,
+    "lora_target_modules": [
+      "query",
+      "value"
+    ],
+    "lora_modules_to_save": [
+      "classifier"
+    ],
+    "revision_note": "Pinned to the roberta-base snapshot already present in the project Hugging Face cache, which is the revision that produced the earlier unpinned pilot artifacts. The weights are therefore unchanged; only the recorded contract changes. Because architecture_contract() embeds 'revision', pinning necessarily invalidates the unpinned pilot's saved initialization digest, so pinned runs use a separate output root and a fresh shared initialization. The unpinned pilot is retained untouched under results/raw/transformer/."
+  },
+  "data": {
+    "dataset_name": "fancyzhx/ag_news",
+    "dataset_config": null,
+    "construction_seed": 1303,
+    "base_per_class": 500,
+    "optional_group_size": 320,
+    "probe_per_class": 200,
+    "group_names": [
+      "clean_balanced",
+      "duplicate_or_lightly_perturbed",
+      "short_documents",
+      "long_documents",
+      "controlled_label_corruption",
+      "correctly_labelled_corruption_region",
+      "world_scitech_enrichment",
+      "business_sports_enrichment"
+    ]
+  },
+  "training": {
+    "seed": 0,
+    "initialization_seed": 2026,
+    "learning_rate": 0.0002,
+    "weight_decay": 0.01,
+    "batch_size": 16,
+    "eval_batch_size": 64,
+    "max_updates": 250,
+    "max_grad_norm": 1.0
+  },
+  "unlearning": {
+    "learning_rate": 0.0001,
+    "weight_decay": 0.0,
+    "batch_size": 16,
+    "max_updates": 120,
+    "forget_strength": 0.08,
+    "proximity_weight": 8.0,
+    "max_grad_norm": 1.0,
+    "objective": "min_theta L_retain(theta; S) - lambda L_forget(theta; N minus S) + gamma mean_p ||theta_p-theta_full,p||_2^2, optimized only over LoRA and classification-head parameters. This is approximate unlearning, not certified unlearning."
+  },
+  "smoke": {
+    "data": {
+      "base_per_class": 16,
+      "optional_group_size": 8,
+      "probe_per_class": 8,
+      "max_train_documents": 128,
+      "max_forget_documents": 32,
+      "max_probe_documents": 32
+    },
+    "model": {
+      "max_length": 32
+    },
+    "training": {
+      "batch_size": 4,
+      "eval_batch_size": 8,
+      "max_updates": 2
+    },
+    "unlearning": {
+      "batch_size": 4,
+      "max_updates": 2
+    }
+  }
+}

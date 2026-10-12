@@ -1,0 +1,149 @@
+{
+  "d": 24,
+  "evaluation_count": 302,
+  "g": 3,
+  "gate_count": 45,
+  "incidence": [
+    [
+      [
+        3,
+        15,
+        16
+      ],
+      [
+        10,
+        12,
+        18
+      ]
+    ],
+    [
+      [
+        6,
+        7,
+        14
+      ],
+      [
+        1,
+        19,
+        22
+      ]
+    ],
+    [
+      [
+        4,
+        13,
+        23
+      ],
+      [
+        2,
+        8,
+        9
+      ]
+    ],
+    [
+      [
+        0,
+        17,
+        21
+      ],
+      [
+        5,
+        11,
+        20
+      ]
+    ],
+    [
+      [
+        0,
+        2,
+        9
+      ],
+      [
+        4,
+        14,
+        23
+      ]
+    ],
+    [
+      [
+        6,
+        11,
+        21
+      ],
+      [
+        3,
+        13,
+        17
+      ]
+    ],
+    [
+      [
+        10,
+        20,
+        22
+      ],
+      [
+        1,
+        5,
+        16
+      ]
+    ],
+    [
+      [
+        7,
+        15,
+        19
+      ],
+      [
+        8,
+        12,
+        18
+      ]
+    ],
+    [
+      [
+        12,
+        16,
+        17
+      ],
+      [
+        0,
+        1,
+        22
+      ]
+    ],
+    [
+      [
+        2,
+        6,
+        10
+      ],
+      [
+        13,
+        18,
+        19
+      ]
+    ]
+  ],
+  "k": 2,
+  "leave_role_out_count": 20,
+  "loo_count": 24,
+  "nested_budgets": [
+    256,
+    512,
+    1024
+  ],
+  "overlap_training_evaluation": [],
+  "overlap_training_gate": [],
+  "pilot_replicate_1_design_sha256": "3976d693f6b7f23ef75f954c441b34f03d2b1ec1592ae738ac7be58dfe413082",
+  "queries": 10,
+  "sha256": {
+    "gpu_evaluation_masks.txt": "331ccf7e6b441093d47059e7d87491070557a7bdfcd240cdabeb679000842dfd",
+    "gpu_gate_masks.txt": "86668aacda917b0d843345071d9860fbbf3ff74983625e5a19230e4249a21e34",
+    "gpu_test_masks.txt": "0b5b51c576a2ae6d673c87e5c44f669fc81d38f071cb1d10e3667a3747441636",
+    "gpu_training_masks.txt": "85e44ce115cc5897db892bd9f1140d6dcac1d0094373c5a877dc0370257b10fd"
+  },
+  "status": "FROZEN_BEFORE_ANY_GPU_OUTCOME",
+  "test_count": 256,
+  "training_count": 1024
+}

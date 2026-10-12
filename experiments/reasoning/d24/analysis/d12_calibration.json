@@ -1,0 +1,228 @@
+{
+  "cardinality_effect_complete_cells": [
+    {
+      "cardinality": 3,
+      "mean_logp": -0.0005822912798213374,
+      "n": 80,
+      "sd_logp": 7.727762799074002e-05
+    },
+    {
+      "cardinality": 4,
+      "mean_logp": -0.0005800785595136662,
+      "n": 76,
+      "sd_logp": 3.93098443169434e-05
+    },
+    {
+      "cardinality": 5,
+      "mean_logp": -0.0005812360002357574,
+      "n": 548,
+      "sd_logp": 6.214693344883312e-05
+    },
+    {
+      "cardinality": 6,
+      "mean_logp": -0.0005703533033350469,
+      "n": 31,
+      "sd_logp": 2.3973286217034745e-05
+    },
+    {
+      "cardinality": 7,
+      "mean_logp": -0.0007460169788334373,
+      "n": 43,
+      "sd_logp": 0.0002983572355455518
+    },
+    {
+      "cardinality": 8,
+      "mean_logp": -0.0005773906671111622,
+      "n": 56,
+      "sd_logp": 4.591791371852165e-05
+    },
+    {
+      "cardinality": 9,
+      "mean_logp": -0.0005672909102788829,
+      "n": 69,
+      "sd_logp": 2.4188358867099218e-05
+    },
+    {
+      "cardinality": 10,
+      "mean_logp": -0.0005684822968155447,
+      "n": 104,
+      "sd_logp": 2.9769761846528977e-05
+    },
+    {
+      "cardinality": 11,
+      "mean_logp": -0.0005698570816035029,
+      "n": 80,
+      "sd_logp": 2.7951683700085056e-05
+    },
+    {
+      "cardinality": 12,
+      "mean_logp": -0.0005477869467276539,
+      "n": 10,
+      "sd_logp": 1.961768992691898e-05
+    }
+  ],
+  "cell_query_records": 6060,
+  "cells": 606,
+  "complete_mean_logp": -0.0005839670269489575,
+  "complete_sd_logp": 8.535269488401988e-05,
+  "incomplete_mean_logp": -11.210506320635828,
+  "incomplete_sd_logp": 0.5224985471972082,
+  "noise_sd_complete_cells_only": 7.797665487095765e-05,
+  "noise_sd_within_pattern_and_cardinality": 0.4714482523350244,
+  "note": "noise_sd_* are upper bounds on pure retraining noise: only one learner seed exists, so replicates differ in provider identity and in which irrelevant groups are present, not in training seed.",
+  "residual_sd_or_only_model": {
+    "classes": 8,
+    "sd": 0.46888368797894475
+  },
+  "residual_sd_provider_count_model": {
+    "classes": 10,
+    "sd": 0.47197234077103367
+  },
+  "residual_sd_provider_count_plus_cardinality_model": {
+    "classes": 70,
+    "sd": 0.4714482523350244
+  },
+  "source": "original d=12 coalition records",
+  "value_profile_by_role_pattern": [
+    {
+      "max_logp": -8.851615136669528,
+      "mean_logp": -11.155005530328197,
+      "min_logp": -13.08916276501071,
+      "n": 462,
+      "presence_sorted": [
+        0,
+        0,
+        0
+      ],
+      "providers_present": 0,
+      "roles_complete": 0,
+      "sd_logp": 0.5978421936470739
+    },
+    {
+      "max_logp": -8.751025061453543,
+      "mean_logp": -11.183333785028339,
+      "min_logp": -13.885398495581843,
+      "n": 1693,
+      "presence_sorted": [
+        1,
+        0,
+        0
+      ],
+      "providers_present": 1,
+      "roles_complete": 1,
+      "sd_logp": 0.5645976732207215
+    },
+    {
+      "max_logp": -8.962451688704952,
+      "mean_logp": -11.168286085974785,
+      "min_logp": -12.4503235970774,
+      "n": 400,
+      "presence_sorted": [
+        2,
+        0,
+        0
+      ],
+      "providers_present": 2,
+      "roles_complete": 1,
+      "sd_logp": 0.5361558882910125
+    },
+    {
+      "max_logp": -8.575187575432562,
+      "mean_logp": -11.239930310131747,
+      "min_logp": -13.162111159293882,
+      "n": 1664,
+      "presence_sorted": [
+        1,
+        1,
+        0
+      ],
+      "providers_present": 2,
+      "roles_complete": 2,
+      "sd_logp": 0.4760932577536627
+    },
+    {
+      "max_logp": -8.619734441080402,
+      "mean_logp": -11.261453956532527,
+      "min_logp": -13.677212315220986,
+      "n": 668,
+      "presence_sorted": [
+        2,
+        1,
+        0
+      ],
+      "providers_present": 3,
+      "roles_complete": 2,
+      "sd_logp": 0.443406059122563
+    },
+    {
+      "max_logp": -9.87428455968057,
+      "mean_logp": -11.283375037343879,
+      "min_logp": -13.524192010202716,
+      "n": 76,
+      "presence_sorted": [
+        2,
+        2,
+        0
+      ],
+      "providers_present": 4,
+      "roles_complete": 2,
+      "sd_logp": 0.5263401213699217
+    },
+    {
+      "max_logp": -0.0004669839972555036,
+      "mean_logp": -0.0005854689938110928,
+      "min_logp": -0.001361099595669657,
+      "n": 497,
+      "presence_sorted": [
+        1,
+        1,
+        1
+      ],
+      "providers_present": 3,
+      "roles_complete": 3,
+      "sd_logp": 7.697343531118392e-05
+    },
+    {
+      "max_logp": -0.000497242528757441,
+      "mean_logp": -0.0005897029783071008,
+      "min_logp": -0.0016547871806148078,
+      "n": 330,
+      "presence_sorted": [
+        2,
+        1,
+        1
+      ],
+      "providers_present": 4,
+      "roles_complete": 3,
+      "sd_logp": 0.0001064780515421473
+    },
+    {
+      "max_logp": -0.0005182299177132306,
+      "mean_logp": -0.0005759905958428423,
+      "min_logp": -0.001286607661900381,
+      "n": 185,
+      "presence_sorted": [
+        2,
+        2,
+        1
+      ],
+      "providers_present": 5,
+      "roles_complete": 3,
+      "sd_logp": 8.044100904260873e-05
+    },
+    {
+      "max_logp": -0.0005225272053071569,
+      "mean_logp": -0.000570276418430872,
+      "min_logp": -0.0006744208437721095,
+      "n": 85,
+      "presence_sorted": [
+        2,
+        2,
+        2
+      ],
+      "providers_present": 6,
+      "roles_complete": 3,
+      "sd_logp": 3.1872721434339205e-05
+    }
+  ]
+}

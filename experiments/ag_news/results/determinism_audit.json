@@ -1,0 +1,19 @@
+{
+  "bitwise_equal_logits": true,
+  "capacity": "lora_rank_1",
+  "experiment_id": "E1",
+  "independent_output_roots": [
+    "E1_adapter_rank_v2",
+    "E1_adapter_rank_v2_repeat"
+  ],
+  "learner_seed": 31,
+  "masks": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "max_abs_logit_difference": 0.0,
+  "nondeterminism_warning_present": false,
+  "scientific_use_of_repeat": "technical_validation_only"
+}

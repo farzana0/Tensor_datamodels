@@ -1,0 +1,17 @@
+{
+  "budgets": [
+    8,
+    16,
+    32,
+    64,
+    128
+  ],
+  "cube": "agnews_lora_r2_seed31",
+  "d": 8,
+  "outputs": [
+    "negative_loss"
+  ],
+  "preregistration_sha256": "90256dcc1f982f4b2cd0c55a7f518445676af3bf6302a32456e05bdadc6d2004",
+  "repeats": 20,
+  "seconds": 217.5
+}

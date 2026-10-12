@@ -1,0 +1,395 @@
+{
+  "cubes": [
+    {
+      "cells": 256,
+      "complete": true,
+      "cube_id": "agnews_lora_rank16_seed31",
+      "d": 8,
+      "evidence_type": "retraining",
+      "file": "agnews_lora_rank16_seed31.npz",
+      "outputs": 1,
+      "seeds": [
+        31
+      ],
+      "sha256": "961c728e312ba02e1fbe79f73cdf663203365168bacaec28ed2f9b5ce434185f",
+      "utility": "negative held-out probe NLL (higher is better)"
+    },
+    {
+      "cells": 256,
+      "complete": true,
+      "cube_id": "agnews_lora_rank16_seed43",
+      "d": 8,
+      "evidence_type": "retraining",
+      "file": "agnews_lora_rank16_seed43.npz",
+      "outputs": 1,
+      "seeds": [
+        43
+      ],
+      "sha256": "db8da25000236c94426ba92f0cb4421172c0c3282d18db3ca85269ad31bf1257",
+      "utility": "negative held-out probe NLL (higher is better)"
+    },
+    {
+      "cells": 256,
+      "complete": true,
+      "cube_id": "agnews_lora_rank16_seed59",
+      "d": 8,
+      "evidence_type": "retraining",
+      "file": "agnews_lora_rank16_seed59.npz",
+      "outputs": 1,
+      "seeds": [
+        59
+      ],
+      "sha256": "26a20fb5e84a1b096482d2f5334f573294ad101e995f1e86909a1b4914560927",
+      "utility": "negative held-out probe NLL (higher is better)"
+    },
+    {
+      "cells": 256,
+      "complete": true,
+      "cube_id": "agnews_lora_rank1_seed31",
+      "d": 8,
+      "evidence_type": "retraining",
+      "file": "agnews_lora_rank1_seed31.npz",
+      "outputs": 1,
+      "seeds": [
+        31
+      ],
+      "sha256": "5557749308cb64042527e2025e908ecaaf1993b9a9ca96eb4e7efc39fa07e71d",
+      "utility": "negative held-out probe NLL (higher is better)"
+    },
+    {
+      "cells": 256,
+      "complete": true,
+      "cube_id": "agnews_lora_rank1_seed43",
+      "d": 8,
+      "evidence_type": "retraining",
+      "file": "agnews_lora_rank1_seed43.npz",
+      "outputs": 1,
+      "seeds": [
+        43
+      ],
+      "sha256": "e61dea10ffa617729c722942f422366d6fa1a2d1906f6b2ca8498a3dfa55888e",
+      "utility": "negative held-out probe NLL (higher is better)"
+    },
+    {
+      "cells": 256,
+      "complete": true,
+      "cube_id": "agnews_lora_rank1_seed59",
+      "d": 8,
+      "evidence_type": "retraining",
+      "file": "agnews_lora_rank1_seed59.npz",
+      "outputs": 1,
+      "seeds": [
+        59
+      ],
+      "sha256": "0e894a3af88293cedb2648f246bed751041ac9caae411d19901d834a7bf1c187",
+      "utility": "negative held-out probe NLL (higher is better)"
+    },
+    {
+      "cells": 256,
+      "complete": true,
+      "cube_id": "agnews_lora_rank2_seed31",
+      "d": 8,
+      "evidence_type": "retraining",
+      "file": "agnews_lora_rank2_seed31.npz",
+      "outputs": 1,
+      "seeds": [
+        31
+      ],
+      "sha256": "030ab730397c6e3bf46a19abf788849f1c9f3bff352b47b430164dab68707642",
+      "utility": "negative held-out probe NLL (higher is better)"
+    },
+    {
+      "cells": 256,
+      "complete": true,
+      "cube_id": "agnews_lora_rank2_seed43",
+      "d": 8,
+      "evidence_type": "retraining",
+      "file": "agnews_lora_rank2_seed43.npz",
+      "outputs": 1,
+      "seeds": [
+        43
+      ],
+      "sha256": "b126ce364c36c2e082ff8e9dccdf7d23a545859c27aa50aa4c84179bae71c742",
+      "utility": "negative held-out probe NLL (higher is better)"
+    },
+    {
+      "cells": 256,
+      "complete": true,
+      "cube_id": "agnews_lora_rank2_seed59",
+      "d": 8,
+      "evidence_type": "retraining",
+      "file": "agnews_lora_rank2_seed59.npz",
+      "outputs": 1,
+      "seeds": [
+        59
+      ],
+      "sha256": "f19a38861a72edd0171327933d9cda516fb5dcfd088a78f2c30d80f63f7b7cf5",
+      "utility": "negative held-out probe NLL (higher is better)"
+    },
+    {
+      "cells": 256,
+      "complete": true,
+      "cube_id": "agnews_lora_rank4_seed31",
+      "d": 8,
+      "evidence_type": "retraining",
+      "file": "agnews_lora_rank4_seed31.npz",
+      "outputs": 1,
+      "seeds": [
+        31
+      ],
+      "sha256": "e236004379ec5fda9ccb94dce90c1f92ddb107e3ff0d4e95334dccf90a15a970",
+      "utility": "negative held-out probe NLL (higher is better)"
+    },
+    {
+      "cells": 256,
+      "complete": true,
+      "cube_id": "agnews_lora_rank4_seed43",
+      "d": 8,
+      "evidence_type": "retraining",
+      "file": "agnews_lora_rank4_seed43.npz",
+      "outputs": 1,
+      "seeds": [
+        43
+      ],
+      "sha256": "c17a7f42beaf62d05f5e405216318fc6e5c16b7b998b8d5ddd99b0e9661e4b1d",
+      "utility": "negative held-out probe NLL (higher is better)"
+    },
+    {
+      "cells": 256,
+      "complete": true,
+      "cube_id": "agnews_lora_rank4_seed59",
+      "d": 8,
+      "evidence_type": "retraining",
+      "file": "agnews_lora_rank4_seed59.npz",
+      "outputs": 1,
+      "seeds": [
+        59
+      ],
+      "sha256": "9ce999f4cb12e5e270a0b48e7db720896de537086cec94f06b7114164243b157",
+      "utility": "negative held-out probe NLL (higher is better)"
+    },
+    {
+      "cells": 256,
+      "complete": true,
+      "cube_id": "agnews_lora_rank64_seed31",
+      "d": 8,
+      "evidence_type": "retraining",
+      "file": "agnews_lora_rank64_seed31.npz",
+      "outputs": 1,
+      "seeds": [
+        31
+      ],
+      "sha256": "fc668fc02dcf5abb8773822d3fe76721e6bc9097d84ddab1e65c0a342c33f483",
+      "utility": "negative held-out probe NLL (higher is better)"
+    },
+    {
+      "cells": 256,
+      "complete": true,
+      "cube_id": "agnews_lora_rank64_seed43",
+      "d": 8,
+      "evidence_type": "retraining",
+      "file": "agnews_lora_rank64_seed43.npz",
+      "outputs": 1,
+      "seeds": [
+        43
+      ],
+      "sha256": "2bb2164dde6d7cfa54972a2f15a7a3a606e673bc8ef3636101d1f6e6f3d0c877",
+      "utility": "negative held-out probe NLL (higher is better)"
+    },
+    {
+      "cells": 256,
+      "complete": true,
+      "cube_id": "agnews_lora_rank64_seed59",
+      "d": 8,
+      "evidence_type": "retraining",
+      "file": "agnews_lora_rank64_seed59.npz",
+      "outputs": 1,
+      "seeds": [
+        59
+      ],
+      "sha256": "203d25e6405a298ece022b94271d5cbb283247e0305b40eb331fb2f3c9480fa7",
+      "utility": "negative held-out probe NLL (higher is better)"
+    },
+    {
+      "cells": 256,
+      "complete": true,
+      "cube_id": "agnews_lora_rank8_seed31",
+      "d": 8,
+      "evidence_type": "retraining",
+      "file": "agnews_lora_rank8_seed31.npz",
+      "outputs": 1,
+      "seeds": [
+        31
+      ],
+      "sha256": "769451240ae89de48746ea51d5491e8afd9b74998a518892fa47c3d2f5c0187a",
+      "utility": "negative held-out probe NLL (higher is better)"
+    },
+    {
+      "cells": 256,
+      "complete": true,
+      "cube_id": "agnews_lora_rank8_seed43",
+      "d": 8,
+      "evidence_type": "retraining",
+      "file": "agnews_lora_rank8_seed43.npz",
+      "outputs": 1,
+      "seeds": [
+        43
+      ],
+      "sha256": "4ea1a2ad5dcae1fd682f4c40ccd603bd0be65314d47ef00740d3dbdea791713a",
+      "utility": "negative held-out probe NLL (higher is better)"
+    },
+    {
+      "cells": 256,
+      "complete": true,
+      "cube_id": "agnews_lora_rank8_seed59",
+      "d": 8,
+      "evidence_type": "retraining",
+      "file": "agnews_lora_rank8_seed59.npz",
+      "outputs": 1,
+      "seeds": [
+        59
+      ],
+      "sha256": "8601ed8ba610b3e2fff37fa0cf2ef93f220a7c8475869bb75da8658b0bfb6d41",
+      "utility": "negative held-out probe NLL (higher is better)"
+    },
+    {
+      "cells": 4115,
+      "complete": false,
+      "cube_id": "andor_d24_k2_g3",
+      "d": 24,
+      "evidence_type": "retraining",
+      "file": "andor_d24_k2_g3.npz",
+      "outputs": 310,
+      "seeds": [
+        31,
+        43,
+        59
+      ],
+      "sha256": "5b4467dccc19e28200d8a90721a859a3a3ecd929a307923f08707f2de6d57fb0",
+      "utility": "per-query-input log probability of the target continuation (10 queries x 31 inputs)"
+    },
+    {
+      "cells": 1024,
+      "complete": true,
+      "cube_id": "atlas_ag_news_topics_d10",
+      "d": 10,
+      "evidence_type": "closed-form refit",
+      "file": "atlas_ag_news_topics_d10.npz",
+      "outputs": 1,
+      "seeds": [
+        -1
+      ],
+      "sha256": "eda2cb43b44e4eff565b2b1e5eb332ab6c4e6aecfe052597995f6d8925280afb",
+      "utility": "negative softmax log-loss on 2000 AG News test items (higher is better)"
+    },
+    {
+      "cells": 256,
+      "complete": true,
+      "cube_id": "atlas_qwen_coin_icl_d8",
+      "d": 8,
+      "evidence_type": "frozen-inference",
+      "file": "atlas_qwen_coin_icl_d8.npz",
+      "outputs": 1,
+      "seeds": [
+        -1
+      ],
+      "sha256": "cecd9614e1823c38d7ffd3bf1ebf4acc12f72fc809f8ed669d2b7527557abb48",
+      "utility": "negative mean query NLL (higher is better)"
+    },
+    {
+      "cells": 1024,
+      "complete": true,
+      "cube_id": "atlas_uci_har_clients_d10",
+      "d": 10,
+      "evidence_type": "closed-form refit",
+      "file": "atlas_uci_har_clients_d10.npz",
+      "outputs": 1,
+      "seeds": [
+        -1
+      ],
+      "sha256": "dab687f16ef1b65d34c3dbe0f280ca024eb1a67b032618ef906fb736813c0917",
+      "utility": "negative softmax log-loss on the official HAR test split; empty coalition = uniform six-class predictor (-log 6) (higher is better)"
+    },
+    {
+      "cells": 320,
+      "complete": false,
+      "cube_id": "khop_d12_noise_ceiling",
+      "d": 12,
+      "evidence_type": "retraining",
+      "file": "khop_d12_noise_ceiling.npz",
+      "outputs": 310,
+      "seeds": [
+        31,
+        43
+      ],
+      "sha256": "5ba6e6f24b6f69a09e4589bae452af68d9948c3fface5c921b4076fbef7ade9d",
+      "utility": "per-query-input log probability of the target continuation (10 queries x 31 inputs)"
+    },
+    {
+      "cells": 3060,
+      "complete": false,
+      "cube_id": "khop_d12_replication",
+      "d": 12,
+      "evidence_type": "retraining",
+      "file": "khop_d12_replication.npz",
+      "outputs": 310,
+      "seeds": [
+        31,
+        43,
+        59
+      ],
+      "sha256": "aebffafda78a56568c28e0c19a0d6e44a111624524c079bc32bb9d6e0d4484da",
+      "utility": "per-query-input log probability of the target continuation (10 queries x 31 inputs)"
+    },
+    {
+      "cells": 256,
+      "complete": true,
+      "cube_id": "khop_d8_transformer",
+      "d": 8,
+      "evidence_type": "retraining",
+      "file": "khop_d8_transformer.npz",
+      "outputs": 248,
+      "seeds": [
+        31
+      ],
+      "sha256": "aec09fdd8c7cb1b42dbff7753f9d9b8fe18199edd8db739947f8865c13472d9e",
+      "utility": "per-query-input log probability of the target continuation (248 = 8 queries x 31 inputs); higher is better"
+    },
+    {
+      "cells": 768,
+      "complete": true,
+      "cube_id": "modular_relations_d8",
+      "d": 8,
+      "evidence_type": "retraining",
+      "file": "modular_relations_d8.npz",
+      "outputs": 4,
+      "seeds": [
+        31,
+        43,
+        59
+      ],
+      "sha256": "951d7d60fa51691bf0c617e14dc14d479f395d53fb0e787b2c84ead7d9cbed62",
+      "utility": "mean log probability of the correct answer for each of four query families"
+    },
+    {
+      "cells": 96,
+      "complete": false,
+      "cube_id": "sportmusic_qwen2_7b_d10",
+      "d": 10,
+      "evidence_type": "retraining",
+      "file": "sportmusic_qwen2_7b_d10.npz",
+      "outputs": 6,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "sha256": "f5a2a9e27e1bd8611423ba555abd222edc45ba2382224ffcde89bcbf23813b41",
+      "utility": "mean correct-genre full-string log probability over the 80 held-out canonical probes, plus the same quantity within each of the 5 query classes"
+    }
+  ],
+  "n_cells": 15527,
+  "n_complete": 23,
+  "n_cubes": 27,
+  "schema_version": "tndm-cube-1"
+}

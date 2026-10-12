@@ -1,0 +1,43 @@
+{
+  "max_abs_difference": 0.0,
+  "per_arm": {
+    "k2_g2_d8_m96": {
+      "cardinality": 0.0,
+      "linear": 0.0,
+      "degree2_ridge": 0.0,
+      "degree3_ridge": 0.0,
+      "degree3_omp": 0.0,
+      "rbf_krr": 0.0,
+      "tt": 0.0,
+      "cp": 0.0,
+      "ht": 0.0,
+      "ladder_tt": 0.0
+    },
+    "k3_g2_d12_m128": {
+      "cardinality": 0.0,
+      "linear": 0.0,
+      "degree2_ridge": 0.0,
+      "degree3_ridge": 0.0,
+      "degree3_omp": 0.0,
+      "rbf_krr": 0.0,
+      "tt": 0.0,
+      "cp": 0.0,
+      "ht": 0.0,
+      "ladder_tt": 0.0
+    },
+    "k2_g3_d24_m128": {
+      "cardinality": 0.0,
+      "linear": 0.0,
+      "degree2_ridge": 0.0,
+      "degree3_ridge": 0.0,
+      "degree3_omp": 0.0,
+      "rbf_krr": 0.0,
+      "tt": 0.0,
+      "cp": 0.0,
+      "ht": 0.0,
+      "ladder_tt": 0.0
+    }
+  },
+  "torch": "2.9.0+cu128",
+  "numpy": "1.26.4"
+}

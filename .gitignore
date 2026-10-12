@@ -1,0 +1,56 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+build/
+dist/
+.venv/
+venv/
+.env
+.env.*
+
+# Editors / OS
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Caches, model weights and checkpoints
+hf_cache/
+huggingface_cache/
+.cache/
+.mplconfig/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.bin
+
+# Scheduler and run logs
+slurm-*.out
+slurm-*.err
+*.log
+logs/
+
+# Regenerated raw outputs (per-coalition retraining records and intermediate fits).
+# The compact results needed to reproduce the paper's tables are committed.
+experiments/reasoning/d8/cells/
+experiments/reasoning/d12/results/*/
+!experiments/reasoning/d12/results/fits/
+experiments/reasoning/d24/gpu/observed/
+experiments/reasoning/d24/gpu/logs/
+experiments/reasoning/d24/pilot/results/
+experiments/reasoning/d24/pilot/logs/
+experiments/ag_news/results/raw/
+experiments/ag_news/results/data_dependency_attribution/
+experiments/sport_music/dataset/data/
+experiments/sport_music/dataset/source/
+experiments/sport_music/results/logs/
+experiments/modular_retraining/learner/runs/
+experiments/modular_retraining/figure/figures/
+experiments/attribution/cache/
+experiments/attribution/results/**/*.partial
+experiments/attribution/results/**/*.lock

@@ -1,0 +1,56 @@
+{
+  "base_config": "configs/transformer.yaml",
+  "base_config_sha256": "6e86da913eedc27907981ab6d401887c44a42f93b179dc6afef735064dc73922",
+  "config_sha256": {
+    "1": "1bfc87264f8100394baff699bb923463749685b07fe0030e3ce3b0ec5308b9ab",
+    "16": "cfff443406c1258ed22e79fb55d9fe66f075b20f13b93eeca05cf345d11e8fa5",
+    "2": "f615df9b5f075462adc00b1468a0f790c636397fbfa08a552374da08405b3f56",
+    "4": "bf2c7f24c6b6f4bab3af6077686019913d95e8b9882663cc1410c3eadcf23c37",
+    "64": "64b9ef1e1279af637dac167d7ecc1b29c75793f4c1d166fa3facad4ddad21aa2",
+    "8": "0c64c8715650e9332a4da49016086f233ed337fa0b1207c91a6096b82d6abd1f"
+  },
+  "dimension": 8,
+  "experiment_id": "E1",
+  "learner_seeds": [
+    31,
+    43,
+    59
+  ],
+  "lora_alpha_rule": "alpha=2*rank; alpha/r=2",
+  "manifest": "results/data_dependency_attribution/E1_adapter_rank_v2/oracle_manifest.jsonl",
+  "manifest_sha256": "0a1fb7ba9c93efd1b756dae1507e643d1d267629baf09a97f3ffc8d02e326cca",
+  "oracle_calls": 4608,
+  "outcome_values_opened_during_preparation": false,
+  "packed_four_gpu_array_tasks": 1152,
+  "prepared_data": "results/raw/transformer/data/ag_news_prepared.json",
+  "prepared_data_sha256": "32acfadb7a9592a05231007026c0196b9fe854a4efdafd89c79698952fa9a6b8",
+  "preregistration_sha256": "4f4772f119ebbfe4eacf4530aa912557cb2985291bbd99cba81848502092bda4",
+  "ranks": [
+    1,
+    2,
+    4,
+    8,
+    16,
+    64
+  ],
+  "recommended_array_chunks": [
+    {
+      "array": "0-575%8",
+      "identity_offset": 0,
+      "ranks": [
+        1,
+        2,
+        4
+      ]
+    },
+    {
+      "array": "0-575%8",
+      "identity_offset": 2304,
+      "ranks": [
+        8,
+        16,
+        64
+      ]
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "status": "COMPLETE",
+  "converged": true,
+  "convergence_threshold": 0.01,
+  "max_grad_norm": 1.0,
+  "index": 1,
+  "kind": "anchor_full",
+  "mask": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "groups": [
+    "A_0",
+    "A_1",
+    "A_2",
+    "A_3",
+    "A_4",
+    "B_0",
+    "B_1",
+    "B_2",
+    "B_3",
+    "B_4"
+  ],
+  "n_groups": 10,
+  "seed": 0,
+  "n_documents": 120,
+  "final_train_cross_entropy": 6.953868414427689e-07,
+  "train_cross_entropy_curve": [
+    7.118781745433807,
+    0.00011453263289240567,
+    2.3913970856881406e-06,
+    1.3411007451225032e-06,
+    1.2453692850300513e-06,
+    9.148396760139121e-07,
+    8.534289612782686e-07,
+    8.010493832699694e-07,
+    7.432510686911087e-07,
+    7.053209216678624e-07,
+    6.953868414427689e-07
+  ],
+  "utility": {
+    "n": 80,
+    "mean_gold_logprob": -3.035085787723772,
+    "mean_music_rank": 0.925,
+    "accuracy": 0.5125
+  },
+  "per_class": {
+    "0": {
+      "n": 16,
+      "mean_gold_logprob": -0.24989304287120717,
+      "mean_music_rank": 0.0625,
+      "accuracy": 0.9375
+    },
+    "1": {
+      "n": 16,
+      "mean_gold_logprob": -3.3928641982189705,
+      "mean_music_rank": 1.125,
+      "accuracy": 0.375
+    },
+    "2": {
+      "n": 16,
+      "mean_gold_logprob": -5.874159507295488,
+      "mean_music_rank": 0.875,
+      "accuracy": 0.375
+    },
+    "3": {
+      "n": 16,
+      "mean_gold_logprob": -1.699701765714508,
+      "mean_music_rank": 0.5625,
+      "accuracy": 0.625
+    },
+    "4": {
+      "n": 16,
+      "mean_gold_logprob": -3.9588104245186853,
+      "mean_music_rank": 2.0,
+      "accuracy": 0.25
+    }
+  },
+  "train_recall_accuracy": 1.0,
+  "elapsed_seconds": 186.48707144497894,
+  "learning_rate": 3e-05,
+  "epochs": 100,
+  "torch": "2.12.1+cu130",
+  "transformers": "5.12.1"
+}

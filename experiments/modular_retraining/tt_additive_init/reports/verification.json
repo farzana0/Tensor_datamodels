@@ -1,0 +1,22 @@
+{
+  "planned_new_fits": 300,
+  "completed_new_fits": 300,
+  "output_rows": 1200,
+  "primary_rows": 300,
+  "failed_fits": 0,
+  "independently_checked_attribution_errors": 6000,
+  "maximum_absolute_metric_difference": 0.0,
+  "all_prediction_metrics_verified": true,
+  "all_frozen_inputs_verified": true,
+  "freeze_sha256": "71b7acc9ffa9389417c9a01f6f5e467e26cb6d64390e6a8e72b1e93b412c08d9",
+  "new_method": "tt_additive_init",
+  "new_variant_count": 1,
+  "held_out_tuning": false,
+  "learner_runs": 0,
+  "prediction_arrays_saved": 300,
+  "primary_seed_mean_sd_points": 15,
+  "python": "3.10.4",
+  "numpy": "1.26.4",
+  "better_mean_cells": 13,
+  "note": "Use initialization_comparison.csv for every metric/budget; SD alone is not an accuracy criterion."
+}
