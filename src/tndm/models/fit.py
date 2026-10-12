@@ -1,7 +1,7 @@
 """One-call fitting of a single datamodel family from coalition observations.
 
 This composes the same steps, in the same order, that the d = 24 reasoning
-experiment applies to every family (``experiments/reasoning/d24``): a
+experiment applies to every family: a
 cardinality-stratified fit/validation split, inverse-frequency size weights, the
 cardinality trend, and then the chosen residual family selected on validation
 error.

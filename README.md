@@ -1,37 +1,23 @@
-# Tensor Network Datamodels for Training Data Attribution
+# Tensor-Network Datamodels (TNDM)
 
-Implementation accompanying a paper under review. It contains the
-code and the saved results behind the paper's tables and figures.
-
-## What is a tensor network datamodel?
+Code, data and saved results for *Tensor Network Datamodels for Training Data
+Attribution*.
 
 A *datamodel* predicts the outcome of training on a subset of the training data.
 For `d` training groups, the outcomes of all `2^d` subsets form an order-`d`
-binary tensor with one mode per group. Linear datamodels give each group a fixed
-contribution and cannot represent redundancy or complementarity between groups.
+binary tensor with one mode per group. Linear datamodels assign each group a
+fixed contribution and cannot represent redundancy or complementarity between
+groups.
 
-A **tensor network datamodel (TNDM)** fits a low-rank factorization of that
-tensor from a small number of observed (subset, outcome) pairs:
+A tensor-network datamodel fits a low-rank factorization of that tensor from a
+small number of observed (subset, outcome) pairs:
 
-- **TNDM-CP** — a rank-`R` CP decomposition, `O(dR)` parameters;
-- **TNDM-TT** — a tensor train with ranks `r`, `O(dr²)` parameters.
+- **TNDM-CP**: a rank-`R` CP decomposition, `O(dR)` parameters;
+- **TNDM-TT**: a tensor train with ranks `r`, `O(dr²)` parameters.
 
-Low tensor rank does not limit interaction *degree*: a function such as "one
-group from each of several interchangeable sets must be present" has high degree
-but small rank. One fitted TNDM then answers several attribution questions —
-subset prediction, Shapley and Banzhaf values, higher-order interactions and
-joint-removal effects — without further retraining.
-
-## What this repository contains
-
-| | |
-|---|---|
-| `src/tndm/` | Installable package: TNDM-CP / TNDM-TT / tree models and their fitting, baseline datamodels, exact and contraction-based attribution. |
-| `experiments/` | The experiment pipelines behind the paper's tables and figures, with their saved results. |
-| `data/` | 27 coalition cubes: the measured retraining outcomes used by the experiments. |
-| `scripts/check_paper_numbers.py` | Recomputes 413 of the paper's tabulated numbers from the saved results. |
-| `tests/` | Unit tests against exhaustive enumeration. |
-| `docs/` | Paper-to-code map, reproducibility notes, third-party notices. |
+Low tensor rank does not limit interaction degree. One fitted model answers
+several attribution queries without further retraining: subset prediction,
+Shapley and Banzhaf values, higher-order interactions and joint-removal effects.
 
 ## Installation
 
@@ -40,13 +26,9 @@ Python 3.10 or newer.
 ```bash
 git clone https://github.com/farzana0/TNDM.git && cd TNDM
 python -m venv .venv && source .venv/bin/activate
-pip install -e .                    # core package: numpy + torch
-pip install -e ".[experiments,dev]" # analysis scripts, CPU experiments, tests
-pip install -e ".[finetuning]"      # only for the GPU fine-tuning experiments
+pip install -e .          # core package: numpy, torch
+pip install -e ".[dev]"   # adds pytest and pandas for the tests and scripts
 ```
-
-The saved results were produced with Python 3.10.4, NumPy 1.26.4, SciPy 1.14.0,
-scikit-learn 1.7.2 and PyTorch 2.9.0.
 
 ## Minimal example
 
@@ -72,8 +54,8 @@ pairs = contraction.pair_interactions(model, d)           # Shapley interaction 
 effect = contraction.joint_removal_effect(model, d, groups=(0, 1))
 ```
 
-`python examples/minimal_example.py` runs this comparison against a linear
-datamodel and the exact game. Its output:
+`python examples/minimal_example.py` runs this against a linear datamodel and
+the exact game:
 
 ```text
 held-out NMSE
@@ -86,144 +68,76 @@ pairwise interaction of the redundant groups (0, 1): -0.643 | exact: -0.667
 predicted effect of removing groups 0 and 1 together: 1.318 | exact: 1.0
 ```
 
-Gradient-fitted tensor networks are not bit-reproducible across machines (see
-[Reproducibility](#reproducing-the-papers-experiments)), so expect small
-differences in the tensor-network rows.
-
-**Conventions.** A coalition is an integer whose bit `i` is set when group `i` is
-included; a table of coalition values is indexed by that integer.
-`family` is one of `cp`, `tt`, `ht`, `linear`, `degree2`, `degree3`, `omp`, `rbf`.
-
-## Reproducing the paper's experiments
-
-There are three levels, in increasing cost.
-
-**1. Verify the saved results (seconds, CPU).** Recomputes 413 tabulated values
-from the saved outcomes and frozen predictions and compares them with the paper:
-
-```bash
-python scripts/check_paper_numbers.py
-```
-
-**2. Refit the datamodels on saved retraining outcomes (CPU, minutes to hours).**
-No learner is retrained.
-
-| Paper result | Command (from the repository root) |
-|---|---|
-| Tables 1, 5, 6, 9 — 24 groups | `python experiments/reasoning/d24/gpu/analyze.py analyze` |
-| Fig. 3, Tables 7, 10–12 — 12 groups | `python experiments/reasoning/d12/code/analyze_d12.py --root experiments/reasoning/d12/results --out <dir> --seeds 43 59` |
-| Table 18 (d = 8 fits) | `python experiments/reasoning/d8/src/fit_budgets.py --repeat 1` (repeats 1–20) |
-| Fig. 4 — modular retraining | `python experiments/attribution/run_question_a.py --cube modular_d8_seed31`, then `python experiments/modular_retraining/figure/plot_stabilization.py` |
-| Tables 3, 14 — AG News | `python experiments/attribution/run_question_a.py --cube agnews_lora_r8_seed31` (18 cubes) |
-| Tables 2, 13 — Sport–Music | `python experiments/sport_music/fitting_compute.py` |
-
-Further saved-result summaries and a CPU-only coalition game:
-
-```bash
-python experiments/appendix_tables/summarize.py                 # Table 16, Table 17 (UCI HAR)
-python experiments/qwen_probe/summarize.py                      # Table 17 (Qwen probe), Table 19
-python experiments/qwen_probe/probe_game.py --seed 31 --check   # regenerate the probe game (1,023 refits)
-```
-
-Set `PYTHONPATH=.` (the repository root) for the `experiments/reasoning` scripts.
-Scripts write into their experiment directory and overwrite the saved result
-files of the same name.
-
-**3. Regenerate the retraining outcomes (GPU).** Each experiment directory
-contains the learner, the frozen coalition designs and the Slurm scripts that
-produced the saved outcomes. See the table below and each experiment's README.
-
-Details of what each level covers and how closely refits match the saved fits are
-in [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md). The map from tables and
-figures to code and result files is in [`docs/PAPER_MAP.md`](docs/PAPER_MAP.md).
-
-### Experiments in this repository
-
-| Experiment | Paper | Saved outcomes | Datamodel fits | Regenerating outcomes |
-|---|---|---|---|---|
-| Reasoning, 24 groups | Tables 1, 5, 6, 9 | cube, 3 seeds | frozen predictions included; analysis reproduces exactly | 4,115 from-scratch transformer runs, about 56 GPU-hours (RTX 8000) |
-| Reasoning, 12 groups | Fig. 3, Tables 7, 8, 10–12 | cubes, 3 seeds | frozen predictions included; analysis reproduces exactly | about 47 GPU-hours (RTX 8000) |
-| Reasoning, 8 groups | Table 18 | cube, 1 seed | 20 saved fitting repeats; refit is CPU-only | 256 runs, about 48 GPU-seconds each |
-| Modular retraining | Fig. 4 | cube, 3 seeds | per-repetition metrics included | CPU, minutes |
-| AG News RoBERTa–LoRA | Tables 3, 14 | 18 cubes | per-repetition metrics included | 4,608 LoRA fine-tunes |
-| Sport–Music (Qwen2-7B) | Tables 2, 13 | 96 fine-tune utilities | refit is CPU-only | 96 full fine-tunes on an 80 GB GPU; dataset rebuilt by script (see below) |
-| In-context prediction, d = 500 | Table 16 | — | saved per-candidate errors | — |
-| Attribution accuracy, UCI HAR | Table 17 | cube `atlas_uci_har_clients_d10` | saved per-split errors | — |
-| Attribution accuracy, Qwen probe | Tables 17, 19 | 3 seeds, exhaustive | saved attribution errors | CPU, seconds (`probe_game.py`) |
-
-The GPU retraining pipelines are provided as they were run and were not
-re-executed when this repository was assembled; their saved outcomes are what the
-scripts above read.
+A coalition is an integer whose bit `i` is set when group `i` is included, and a
+table of coalition values is indexed by that integer. `family` is one of `cp`,
+`tt`, `ht`, `linear`, `degree2`, `degree3`, `omp`, `rbf`.
 
 ## Repository structure
 
 ```text
-TNDM/
-├── src/tndm/
-│   ├── models/          TNDM-CP, TNDM-TT, tree (HT), TT degree ladder, fit_datamodel
-│   ├── attribution/     exact.py (enumeration), contraction.py (tensor contraction)
-│   ├── baselines/       cardinality, polynomial ridge, sparse (OMP), RBF kernel ridge
-│   └── utils/           coalition encodings, sampling, splits
-├── experiments/
-│   ├── reasoning/       relation-composition tasks: common/ (learner, fitters), d8/, d12/, d24/
-│   ├── attribution/     one fit, many queries: datamodels vs direct estimators at equal budget
-│   ├── modular_retraining/  learner, additive-initialised TT, Fig. 4
-│   ├── ag_news/         RoBERTa–LoRA coalition fine-tuning pipeline
-│   ├── appendix_tables/ saved result tables for Table 16 and Table 17 (UCI HAR)
-│   ├── qwen_probe/      representation-probe coalition game, Tables 17 and 19
-│   └── sport_music/     Qwen2-7B coalition fine-tuning and datamodel fits
-├── data/                coalition cubes, datasheets, loader
-├── scripts/             check_paper_numbers.py
-├── examples/            minimal_example.py
-├── tests/
-└── docs/
+src/tndm/
+  models/        TNDM-CP, TNDM-TT, tree (HT), TT degree ladder, fit_datamodel
+  attribution/   exact.py (enumeration), contraction.py (tensor contraction)
+  baselines/     cardinality, polynomial ridge, sparse (OMP), RBF kernel ridge
+  utils/         coalition encodings, sampling, splits
+data/            coalition cubes, index, loader
+results/         saved results, one folder per experiment
+scripts/         checks of the paper's reported numbers
+examples/        minimal_example.py
+tests/
 ```
 
-Configurations (frozen coalition designs, model and training settings) and
-results live inside each experiment directory rather than
-in top-level `configs/` and `results/` folders, so that each pipeline keeps the
-relative layout it was run with.
+## Data and saved results
 
-Three fitting implementations are used, each by the experiment it was written
-for; they are not interchangeable and are documented in
-[`docs/PAPER_MAP.md`](docs/PAPER_MAP.md):
+`data/cubes/` holds 27 coalition cubes: measured outcomes of retraining a
+learner on subsets of its training groups (15,527 cells; 23 cubes are
+exhaustive). They cover the relation-composition tasks with 8, 12 and 24
+groups, modular retraining, AG News RoBERTa–LoRA fine-tuning and Sport–Music
+fine-tuning of Qwen2-7B, plus three broader settings. [`data/README.md`](data/README.md) describes the format
+and the loader, and [`data/INDEX.md`](data/INDEX.md) lists every cube.
 
-- `src/tndm/models` — gradient-fitted CP / TT / tree with a cardinality baseline (24 groups);
-- `experiments/reasoning/common/fit_query_paths*.py` — the same models with fixed `d` (8 and 12 groups);
-- `experiments/attribution/lib/surrogates.py` — alternating-least-squares CP / TT (modular, AG News).
+`results/` holds the saved results behind the paper's tables and figures:
 
-## Hardware and data requirements
+| Paper result | Folder |
+|---|---|
+| Tables 1, 5, 6, 9: reasoning, 24 groups | `results/reasoning_24_groups/` |
+| Fig. 3b, Tables 7, 8, 10: reasoning, 12 groups | `results/reasoning_12_groups/` |
+| Table 18: reasoning, 8 and 12 groups | `results/reasoning_8_groups/` |
+| Fig. 4: modular retraining | `results/modular_retraining/` |
+| Tables 3, 14: AG News RoBERTa–LoRA | `results/ag_news/` |
+| Tables 2, 13: Sport–Music (Qwen2-7B) | `results/sport_music/` |
+| Table 16, Table 17 (UCI HAR) | `results/appendix_tables/` |
+| Table 17 (Qwen probe), Table 19 | `results/qwen_probe/` |
 
-- **Package, tests, example, number checks:** CPU, a few GB of memory.
-- **Datamodel refits:** CPU. The 24-group fits take the longest (about ten
-  surrogate families, several rank and order candidates each).
-- **Relation-composition learners:** one GPU; saved runs used Quadro RTX 8000.
-- **AG News:** `fancyzhx/ag_news` and `roberta-base`
-  (revision `e2da8e2f811d1448a5b465c236feacd80ffbac7b`) from the Hugging Face Hub.
-- **Sport–Music:** `Qwen/Qwen2-7B`
-  (revision `453ed1575b739b5b03ce3758b23befdb0967f40e`), full-parameter
-  fine-tuning on an 80 GB GPU. The fine-tuning documents are a reconstruction of
-  the Sport–Music task of Huang et al. (2025) built from a third-party name list
-  that carries no licence, so they are not redistributed here;
-  `experiments/sport_music/build_dataset.py` rebuilds them from the pinned source.
+No third-party dataset or model weights are redistributed; the cubes and results
+are numerical outcomes only.
 
-Random seeds are fixed in the code and recorded with every result: learner seeds
-31, 43 and 59 throughout; coalition-design and split seeds are listed per
-experiment in [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md).
-
-## Tests
+## Tests and verification
 
 ```bash
-pytest                 # 76 tests, about half a minute on a recent CPU
-pytest -m "not slow"   # skip the saved-results check
+pytest                                        # 75 tests, about a minute on a CPU
+python scripts/check_paper_numbers.py         # recomputes 413 reported values
+python scripts/summarize_appendix_tables.py   # prints Table 16 and Table 17 (UCI HAR)
+python scripts/summarize_probe.py             # prints Table 17 (Qwen probe) and Table 19
 ```
 
-## Citation
+`check_paper_numbers.py` recomputes each value from the saved results and
+compares it with the paper at its printed precision. It needs only NumPy and
+pandas and runs in a few seconds.
 
-The paper is under review. Citation information will be added
-after the review period.
+## Reproducibility
+
+- **Reproducible here:** the package and its tests, the minimal example, and
+  the 413 reported values listed above, recomputed from the saved results.
+- **Not reproducible here:** the retraining runs that produced the cubes and
+  the datamodel fits that produced the saved results. Those pipelines (GPU
+  training, fine-tuning and fitting scripts) are not part of this repository.
+  Tables and figures not listed above are not covered.
+- Gradient-fitted tensor networks are not bit-reproducible across machines and
+  library versions, so the tensor-network rows of the example can differ
+  slightly. The saved results were produced with Python 3.10.4, NumPy 1.26.4
+  and PyTorch 2.9.0; learner seeds are 31, 43 and 59 throughout.
 
 ## License
 
-A licence will be added after the review period. Third-party data and
-models keep their own terms; see [`docs/THIRD_PARTY.md`](docs/THIRD_PARTY.md).
+No license has been selected yet.

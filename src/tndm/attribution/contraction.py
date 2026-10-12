@@ -24,9 +24,9 @@ contribution to every index is added in closed form from its ``d + 1`` values.
 Conventions match :mod:`tndm.attribution.exact`: group ``i`` is bit ``i`` of the
 coalition mask and interaction subsets are tuples of group indices.
 
-Note: these routines are release glue written for this repository and are
-verified against exhaustive enumeration in ``tests/``.  The numbers reported in
-the paper's tables were computed by enumerating surrogate predictions.
+These routines are verified against exhaustive enumeration in ``tests/``.  The
+numbers reported in the paper's tables were computed by enumerating surrogate
+predictions.
 """
 from __future__ import annotations
 

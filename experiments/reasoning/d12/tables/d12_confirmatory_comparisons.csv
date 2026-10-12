@@ -1,7 +1,0 @@
-id,comparison,kind,n_units,mean_difference,ci_low,ci_high,unit_win_rate,status
-C1,tt - linear,superiority,20,4.014174,2.282357,5.751288,0.850,SUPPORTED
-C2,tt - random,superiority,20,9.811527,8.670060,10.824985,1.000,SUPPORTED
-C3,tt - influence_loo,superiority,20,9.857461,8.215040,11.125390,0.950,SUPPORTED
-C4,tt - degree3_ridge,equivalence,20,-0.172305,-0.517096,0.000313,0.350,INCONCLUSIVE
-C5,tt - degree2_ridge,descriptive,20,0.411961,-0.344767,1.388708,0.700,
-C5_family,degree_ladder_tt - linear,superiority,20,4.186620,2.479413,5.898061,0.800,SUPPORTED

@@ -1,4 +1,4 @@
-"""Integrity of the released coalition cubes and saved experiment results."""
+"""Integrity of the coalition cubes and saved experiment results."""
 import hashlib
 import json
 import subprocess

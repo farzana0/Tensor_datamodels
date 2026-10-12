@@ -7,7 +7,7 @@ shape ``(n_pairs, K)``.  The same functions are applied to a surrogate's dense
 prediction, which is what makes "fit once, query everything" comparable to a
 direct estimator at equal budget.
 
-Conventions (checked against shapiq's ExactComputer in ``validate_exact.py``):
+Conventions (they agree with shapiq's ExactComputer):
 
 * Shapley value   phi_i      = sum_{S not containing i} |S|!(d-|S|-1)!/d! * (v(S+i) - v(S))
 * Banzhaf value   beta_i     = 2^-(d-1) sum_{S not containing i} (v(S+i) - v(S))

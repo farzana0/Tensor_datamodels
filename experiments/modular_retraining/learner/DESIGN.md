@@ -1,3 +1,0 @@
-# Controlled modular-relation game
-
-A tiny neural learner estimates seven relation-specific 11x11 conditional tables from modular affine facts. Groups A and its replica teach the same relation; B and C teach distinct relations; four groups are distractors. Evaluation composes the learned stochastic transition matrices. The targets separately measure additive atomic competence, A-then-B complementarity, A-then-B-then-C three-way composition, and A/A-replica redundancy. All 256 coalitions are genuinely retrained for three initialization seeds. Surrogates observe 32 masks; all 28 leave-two-out masks are excluded from fitting and validation.

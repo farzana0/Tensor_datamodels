@@ -1,11 +1,11 @@
-"""Loader and exact ground truth for the released coalition-cube suite.
+"""Loader and exact ground truth for the coalition cubes in ``data/cubes``.
 
     from cubes import load, available
-    c = load("arithmetic_cot_d5")
-    v = c.table("ops5")                    # dense 2**d vector, seed-averaged
-    c.shapley("ops5")                      # exact, by enumeration
-    c.interaction("ops5", order=2)         # Shapley interaction index
-    c.banzhaf_interaction("ops5", order=2) # uniform-background pair effects
+    c = load("modular_relations_d8")
+    v = c.table("triple_ABC")                    # dense 2**d vector, seed-averaged
+    c.shapley("triple_ABC")                      # exact, by enumeration
+    c.interaction("triple_ABC", order=2)         # Shapley interaction index
+    c.banzhaf_interaction("triple_ABC", order=2) # uniform-background pair effects
 
 Exact attributions are only defined for complete cubes (every one of the
 ``2**d`` coalitions measured).  On a sampled cube they raise ``IncompleteCube``

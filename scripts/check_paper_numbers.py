@@ -22,7 +22,7 @@ import numpy as np
 import pandas as pd
 
 REPO = Path(__file__).resolve().parents[1]
-EXP = REPO / "experiments"
+RESULTS = REPO / "results"
 ROWS: list[tuple[str, str, str, str, bool]] = []
 
 
@@ -39,7 +39,7 @@ def mean_sd(values) -> tuple[float, float]:
 
 # --------------------------------------------------------------------------- d = 24
 def table_1_5_6_9() -> None:
-    result = json.loads((EXP / "reasoning/d24/gpu/analysis/result.json").read_text())
+    result = json.loads((RESULTS / "reasoning_24_groups/result.json").read_text())
     names = {"linear": "Linear", "degree2_ridge": "Degree-2 ridge", "degree3_ridge": "Degree-3 ridge",
              "degree3_omp": "Degree-3 OMP", "rbf_krr": "RBF", "cp": "TNDM-CP", "tt": "TNDM-TT"}
     paper_nmse = {  # (m=512 mean, sd), (m=1024 mean, sd)   -- Table 1
@@ -85,7 +85,7 @@ D12 = {"linear": "Linear", "degree2_ridge": "Degree-2 ridge", "degree3_ridge": "
 
 
 def table_7_8_10() -> None:
-    summary = pd.read_csv(EXP / "reasoning/d12/analysis/size3_method_summary.csv")
+    summary = pd.read_csv(RESULTS / "reasoning_12_groups/size3_method_summary.csv")
     summary = summary[summary.seed.isin([43, 59])]
     paper7 = {"linear": (0.053, 0.054, 0.083, 0.050, 0.052, 0.055),
               "degree2_ridge": (0.057, 0.045, 0.049, 0.044, 0.042, 0.052),
@@ -103,7 +103,7 @@ def table_7_8_10() -> None:
         rows = summary[(summary.method == key) & (summary.new_budget == 160)]
         check("Table 7", f"{D12[key]} AP m=160", paper, float(rows.complete_interaction_ap.mean()))
 
-    slices = pd.read_csv(EXP / "reasoning/d12/analysis/slice_summary.csv")
+    slices = pd.read_csv(RESULTS / "reasoning_12_groups/slice_summary.csv")
     slices = slices[(slices.seed.isin([43, 59])) & (slices.slice == 4)]
     paper8 = {"linear": (0.650, 0.633, -4.187), "degree2_ridge": (0.900, 0.950, -0.585),
               "degree3_ridge": (1.000, 1.000, -0.001), "sparse_degree3_omp": (0.500, 0.500, -5.546),
@@ -117,7 +117,7 @@ def table_7_8_10() -> None:
         check("Table 8", f"{D12[key]} top-3 completeness", top3, float(rows.top3_complete_fraction.mean()))
         check("Table 8", f"{D12[key]} top-3 utility", utility, float(rows.top3_actual_utility.mean()))
 
-    selection = pd.read_csv(EXP / "reasoning/d12/analysis/size3_attribution_selection.csv")
+    selection = pd.read_csv(RESULTS / "reasoning_12_groups/size3_attribution_selection.csv")
     selection = selection[(selection.seed.isin([43, 59])) & (selection.new_budget == 160)
                           & (selection.criterion == "shapley")]
     paper10 = {"linear_plus_tt": (60.0, 14.1, -4.568, 1.582), "cp": (45.0, 7.1, -5.989, 0.770),
@@ -138,7 +138,7 @@ def table_7_8_10() -> None:
 
 
 def table_18() -> None:
-    d8 = pd.read_csv(EXP / "reasoning/d8/lds/lds_per_fit_d8.csv")
+    d8 = pd.read_csv(RESULTS / "reasoning_8_groups/lds_per_fit_d8.csv")
     d8 = d8[d8.budget == 128].groupby(["family", "repeat"])[["lds_size4", "native_size4"]].mean()
     paper8 = {"linear": (0.341, 0.053, 0.341, 0.053), "degree2_ridge": (0.377, 0.055, 0.730, 0.023),
               "degree3_ridge": (0.381, 0.057, 0.735, 0.023), "rbf_kernel": (0.386, 0.054, 0.738, 0.025),
@@ -150,7 +150,7 @@ def table_18() -> None:
         check("Table 18 (d=8)", f"{key} LDS sd", lds_sd, float(rows.lds_size4.std(ddof=1)))
         check("Table 18 (d=8)", f"{key} direct mean", direct, float(rows.native_size4.mean()))
         check("Table 18 (d=8)", f"{key} direct sd", direct_sd, float(rows.native_size4.std(ddof=1)))
-    d12 = pd.read_csv(EXP / "reasoning/d8/lds/lds_size3_d12.csv")
+    d12 = pd.read_csv(RESULTS / "reasoning_8_groups/lds_size3_d12.csv")
     d12 = d12[(d12.new_budget == 160) & (d12.seed.isin([43, 59]))].groupby(["family", "seed"])[["lds", "native"]].mean()
     paper12 = {"linear": (0.032, 0.021, 0.032, 0.021), "degree2_ridge": (0.026, 0.018, 0.014, 0.026),
                "degree3_ridge": (0.031, 0.009, 0.037, 0.020), "rbf_kernel_ridge": (0.022, 0.003, 0.045, 0.013),
@@ -166,7 +166,7 @@ def table_18() -> None:
 
 # --------------------------------------------------------------------------- fine-tuning
 def table_2_13() -> None:
-    saved = json.loads((EXP / "sport_music/results/FITTING_COMPUTE_mean_gold_logprob.json").read_text())
+    saved = json.loads((RESULTS / "sport_music/fitting_compute_mean_gold_logprob.json").read_text())
     paper = {"linear (tuned)": (0.579, 0.048), "matched (tuned)": (0.556, 0.054), "degree-2 (tuned)": (0.565, 0.109),
              "CP single fit, R=5": (0.668, 0.084), "CP best-of-8, R=5": (0.616, 0.133),
              "CP ENSEMBLE 8 seeds": (0.719, 0.070), "CP ENSEMBLE ranks 3-6": (0.734, 0.061),
@@ -178,7 +178,7 @@ def table_2_13() -> None:
 
 def table_3_14() -> None:
     frames = []
-    for path in sorted((EXP / "attribution/results/question_a").glob("agnews_lora_r*_seed*.csv")):
+    for path in sorted((RESULTS / "ag_news").glob("agnews_lora_r*_seed*.csv")):
         frame = pd.read_csv(path, usecols=["method", "method_type", "design", "budget", "banzhaf_rel_l2",
                                            "shapley_rel_l2"])
         frames.append(frame[frame.budget == 128])
@@ -197,7 +197,7 @@ def table_3_14() -> None:
 
 def figure_4() -> None:
     """Fig. 4 claim: at 64 observations TNDM-CP has the lowest mean error for all three quantities."""
-    base = EXP / "modular_retraining/tt_additive_init/data"
+    base = RESULTS / "modular_retraining"
     stats = pd.concat([pd.read_csv(base / "plot_statistics_all_metrics.csv")])
     plotted = ["linear", "degree2_ridge", "degree3_omp", "rbf", "cp", "tt_additive_init"]
     for metric in ("shapley_rel_l2", "sii_rel_l2", "sii3_rel_l2"):
@@ -208,8 +208,8 @@ def figure_4() -> None:
 
 def table_16_17() -> None:
     """Table 16 (d = 500 in-context prediction) and the UCI HAR panel of Table 17."""
-    sys.path.insert(0, str(EXP / "appendix_tables"))
-    from summarize import table16, table17_uci_har
+    sys.path.insert(0, str(REPO / "scripts"))
+    from summarize_appendix_tables import table16, table17_uci_har
     paper16 = {  # (coin flip 400, coin flip 800, GSM8K 400, GSM8K 800), each (mean, sd)
         "Linear": ((0.1779, 0.0123), (0.1853, 0.0002), (0.3262, 0.0113), (0.2854, 0.0105)),
         "RBF": ((0.1755, 0.0131), (0.1679, 0.0078), (0.2885, 0.0057), (0.2645, 0.0142)),
@@ -242,7 +242,7 @@ def table_16_17() -> None:
 def table_17_19_probe() -> None:
     """Qwen-probe panel of Table 17 and Table 19, from the saved attribution errors."""
     import importlib.util
-    spec = importlib.util.spec_from_file_location("probe_summary", EXP / "qwen_probe/summarize.py")
+    spec = importlib.util.spec_from_file_location("probe_summary", REPO / "scripts/summarize_probe.py")
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     paper17 = {

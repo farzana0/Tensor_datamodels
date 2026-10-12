@@ -5,8 +5,8 @@ training data. Each cube is a table of `v(S)`: `S` is a coalition of `d`
 training groups and `v(S)` is the outcome after training on `S` alone.
 
 This directory holds the 27 cubes behind the experiments in the paper (15,527
-measured cells; 23 cubes are exhaustive). `INDEX.md` lists them, `datasheets/`
-has one sheet per cube (learner, utility, seeds, caveats).
+measured cells; 23 cubes are exhaustive). `INDEX.md` lists them, and each cube's
+`meta_json` field describes its learner, utility, seeds and caveats.
 `index.json` records the SHA-256 of every cube file.
 
 | Cube | Experiment |
@@ -54,7 +54,7 @@ One compressed `.npz` per cube:
 
 ## Before you use a cube
 
-Every datasheet has a **Caveats** section. The ones that most often matter:
+Every cube lists its caveats in `meta_json`. The ones that most often matter:
 
 - **Frozen inference is not retraining.** `atlas_qwen_coin_icl_d8` varies the
   prompt, not the weights.

@@ -1,6 +1,0 @@
-component,n_pairs,mean_signed_shift,mean_absolute_shift,max_absolute_shift,implied_single_run_sd
-backend_a6000_vs_rtx8000,40,0.005273,0.200238,2.796227,0.300039
-backend_v100_vs_rtx8000,40,-0.002062,0.220999,2.570250,0.316971
-data_order,80,0.006871,0.367243,5.142249,0.456180
-initialisation,80,-0.035601,0.346146,3.634178,0.412719
-nondeterminism_same_seed_same_gpu,40,0.000000,0.000000,0.000000,0.000000

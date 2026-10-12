@@ -1,6 +1,5 @@
-# Released coalition cubes
+# Coalition cube index
 
-Subset of the project's coalition-cube suite covering the experiments in the paper.
 Bit convention for every cube: `masks[n]` has bit `i` (value `2**i`) set iff player `i`
 is in the coalition, and `mask_bits[n, i]` says the same thing explicitly.
 

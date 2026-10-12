@@ -1,9 +1,0 @@
-{
- "n_coalitions": 96,
- "converged": 96,
- "replicated_masks": 4,
- "dof": 8,
- "seed_sd_nats": 2.0464018400188677,
- "utility_variance": 83.5200304924207,
- "max_attainable_r2": 0.9498592078314358
-}
